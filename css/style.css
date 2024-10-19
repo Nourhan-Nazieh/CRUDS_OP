@@ -1,0 +1,259 @@
+
+*{
+    transition: all .3s;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body{
+    width: 100%;
+    transition: all .5s;
+    background-image: url(../imag/backBest-Selling.png);
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: "Kalam", cursive;
+
+    }
+
+ /* ـــmoodـــ */
+    body .container .MoodsL{
+        margin: 0px;
+       padding: 0px;
+        width: 50px;
+        height: 35px;
+        border-radius: 66px 0px 0px 66px;
+        outline: none;
+        background-color: rgb(255, 225, 221);
+        border: 1px solid rgb(255, 189, 189);
+        transition: all 1s;
+    }
+    body .container .MoodsD{
+        margin: 0px;
+        padding: 0px;
+        width: 50px;
+        height: 35px;
+        border-radius:  0px 66px 66px 0px ;
+        outline: none;
+        border: 1px solid rgb(1, 1, 1);
+        transition: all 1s;
+
+    }
+
+    body.light-mode {
+        background-color: #ffffff; /* خلفية النهار */
+        color: #181818; /* لون النص في النهار */
+    }
+
+    body.dark-mode {
+        background-color: #2c2c2c; /* خلفية الليل */
+        color: #ffffff; /* لون النص في الليل */
+    }
+    .container{
+
+        box-shadow: 0 0 10px rgb(255, 255, 255);
+    }
+
+
+/* ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ */
+/* ــــــHEADـــــ */
+    body .CRUDS h1{
+        font-family: "Kalam", cursive;
+        text-shadow : 3px 2px 4px rgb(255, 197, 98);
+        color: rgb(56, 40, 110);
+        font-size: 40px !important;
+        box-shadow: 0 0 10px rgba(67, 26, 214, 0.404);
+        border-bottom:rgba(72, 48, 171, 0.578) solid 3px ;
+        margin-left :20%;     
+        margin-right :20%;    
+        padding-top: 9px;
+    }
+       
+    body .CRUDS p{
+        font-family: "Kalam", cursive;
+        font-weight: 800;
+        text-shadow : 3px 2px 4px rgb(244, 192, 97);
+        color: rgb(56, 40, 110);
+        box-shadow: 0 0 10px rgb(255, 255, 255);
+        text-align:center;
+        margin-right: 35%;        
+        margin-left :35%;     
+    }
+    
+    .Animate{
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        padding: 0;
+        margin: 0;  
+    }
+
+    @media(max-width:750px){
+        body .CRUDS h1{
+            font-size: 20px !important;
+            margin-top: 10px;
+            padding-top: 7px;
+        }
+
+        body .CRUDS p{
+            font-family: "Kalam", cursive;
+            font-weight: 900;
+            text-shadow : 3px 2px 4px rgba(18, 11, 36, 0.299);
+            font-size: 4px;   
+        }
+
+        .table{
+            font-size: 12px;  
+        }
+    }
+/* ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ */
+/* ــــــINPUTـــــ */
+
+.inputs{
+    box-shadow: 0 0 10px rgba(65, 64, 146, 0.423);
+}
+
+.price input{
+    width: 15%;
+    margin: 2px 5px;
+}
+
+input{
+    width: 100%;
+    height: 30px;
+    outline:none;
+    border: 3px solid rgb(139, 53, 0);
+    background-color: rgb(40, 39, 38);
+    margin: 4px 0;
+    border-radius: 5px;
+    padding: 14px 5px;
+    color: rgb(255, 230, 243); 
+}   
+
+
+input:focus{
+background:rgba(240, 219, 194, 0.803);
+background-clip: padding-box;
+border: var(--bs-border-width) solid var(--bs-border-color);
+border: 3px solid rgba(38, 125, 68, 0.719);
+transform: scale(1.1);
+}
+
+
+#total{
+    background-color: rgb(135, 18, 14);
+    padding: 5px 5px;
+    border-radius: 5px;
+    color: rgb(255, 237, 214);   
+}
+
+#total::before{
+    content: "Total: ";
+}
+
+button{
+    width: 100%;
+    height:30px;
+    border: 3px solid rgba(125, 38, 38, 0.371);
+    cursor: pointer;
+    background-color: rgba(69, 30, 95, 0.923);
+    border-radius: 20px;
+    color: antiquewhite;
+    transition: 0.5s;
+}
+
+button:hover{
+    background-color: rgba(164, 135, 185, 0.734);
+    border: 3px solid rgb(95, 25, 77);
+    box-shadow: 0 0 10px rgba(139, 76, 167, 0.979);
+    color: rgb(98, 51, 142);
+    letter-spacing: 1px;
+    font-weight: 800;
+
+}
+
+@media(max-width:750px){
+    
+
+    .price input{
+        width: 33%;
+    }
+      
+    
+    button{
+       
+        font-size: 10px;
+    }
+
+    }
+
+/* ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ */
+/* ــــــOUTBUTـــــ */
+
+.outputs{
+
+    box-shadow: 0 0 10px rgba(64, 146, 105, 0.56);
+}
+
+.searchGroup .btnSearch{
+display: flex;
+justify-content: space-between;
+
+}
+.searchGroup .btnSearch button{
+    width: 40%;
+    
+}
+
+/* -- ـــــTableــــ -- */
+
+.parentTable table{
+width: 100%;
+text-align: center;
+margin: 10px 0px;
+margin-bottom: 5px;
+}
+
+.parentTable table th,td{
+    padding: 5px !important;
+    background-color: rgb(153, 132, 93);
+    box-shadow: 0 0 10px rgba(228, 192, 124, 0.947);
+}
+table td{
+padding: 5px !important;
+}
+
+/* <!--ــــــ fotterــــــ --> */
+
+.icon{  
+    box-shadow: rgb(153, 132, 93);
+}
+
+.icon a {
+    /* color: rgb(212, 179, 232); */
+    font-size:20px;
+    transition: 0.5s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    background-color: rgba(133, 120, 84, 0.397);
+}
+
+
+footer{
+    overflow: hidden;  
+    margin: 0px;
+    padding: 0px;
+}
+
+#deletAll{
+    margin: 20px 0px;
+
+}
+
