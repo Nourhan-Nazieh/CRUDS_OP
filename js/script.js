@@ -1,4 +1,3 @@
-
 let Title =document.querySelector ("#Title");
 let price =document.querySelector ("#price");
 let taxes =document.querySelector ("#taxes");
@@ -7,9 +6,7 @@ let discount =document.querySelector ("#discount");
 let total =document.querySelector ("#total");
 let Count =document.querySelector ("#Count");
 let Category =document.querySelector ("#Category");
-let submite =document.querySelector ("#submite");
-
-
+let submite =document.querySelector ("#submite");د
 let moodUpdate ="create";
 let global;
 
@@ -28,18 +25,18 @@ function getTotal() {
     }
 
 }
- // ــــــــــــــــــــــــــــــــــــــــــــــــ
+ // ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 //(02)ــCreat-Products:-
 let datapro;
 if(localStorage.product !=null){
 datapro = JSON.parse(localStorage.product )
 
 }else{
-    datapro =[];
+    datapro = [];
 
 }
-// ــــــــــــــــــــــــــــــــCReat:ــــــــــــــــــــــــــــ-
 
+// ــــــــــــــــــــــــــــــــCReat:ــــــــــــــــــــــــــــ-
 submite.onclick = function(){
     let newPro = {
         Title:Title.value .toLowerCase(),
@@ -50,42 +47,40 @@ submite.onclick = function(){
         total: total.innerHTML,
         Count:Count.value,
         Category:Category.value.toLowerCase(),
-    }  
-
-        if(moodUpdate === "creat"){
-
-
-            if(newPro.Count >1 ){
-                for(let i = 0; i<newPro.Count; i++ ){
-                    datapro.push(newPro)
-                }
-            }else{
-                datapro.push(newPro)
-            }
+    }
     
-        }else{
-    
-            datapro[ global ] = newPro;
-            moodUpdate ="creat"
-            submite.innerHTML = "create"
-            Count.style.display ="block"
-            submite.style .background ="rgb(75, 23, 103)";
+    if (Title.value != "" 
+        && price.value != "" 
+        && Category.value != "" 
+    ){
+
+ if(moodUpdate === "create"){
+    if(newPro.Count > 1 ){
+        for(let i = 0; i < newPro.Count; i++ ){
+            datapro.push(newPro)
         }
-        clearData()
+    }else{
+        datapro.push(newPro)
+    }
+}else{
+    datapro[ global ] = newPro;
+    moodUpdate ="create"
+    submite.innerHTML = "create"
+    Count.style.display ="block"
+    submite.style .background ="rgb(75, 23, 103)";
+}
+    clearData()
+    }
 
-    
+   
  //ـSave-LocalStorage:- 
  localStorage.setItem( "product",   JSON.stringify(datapro) );
 
- console.log(datapro)
-
 showData()
- 
 }
 
-// ـــــــــــــــــــــــــClear Dataــــــــــــــــــــــــــــ
+// ـــــــــــــــــــــــــــــــــــــــــClear Dataــــــــــــــــــــــــــــــــــــــــ
 //(04)Clear Data From Inputs:-
-
 function clearData(){
     Title.value= " " ;
     price.value = " " ;
@@ -97,13 +92,13 @@ function clearData(){
     Category.value = " " ;  
 }
 
-// ـــــــــــــــــــــــــــshowDataــــــــــــــــــــــ
-//(1)ــRead data in Table:-
 
+// ــــــــــــــــــــــــــــــــshowDataــــــــــــــــــــــ
+//(1)ــRead data in Table:-
 function showData()
 {
  getTotal()
- let table= ""
+ let table = "";
  
  for (let i = 0; i < datapro.length; i++ ){
     table +=`
@@ -122,8 +117,7 @@ function showData()
     `
  }
 
- document.querySelector ("tbody").innerHTML= table
-
+ document.querySelector ("#tbody").innerHTML= table;
  let btnDelet = document.querySelector("#deletAll")
  if(datapro.length > 0 ){
     
@@ -140,22 +134,25 @@ function showData()
 showData()
 
 // ــــــــــــــــــــ
-//(1)ــDelet:-
+//(2)ــDelet:-
 
 function deleteData(i)
 {
-datapro.splice(i,1)
-localStorage.product= JSON.stringify(datapro);
-showData()
-
+    if(confirm(`Are You Sure Deleted...?`) == true){
+        datapro.splice(i,1)
+        localStorage.product= JSON.stringify(datapro);
+        showData()
+    }
 }
 
 //(2)ــDeletALL:-
 
 function deletAll (){
-    localStorage.clear()
-    datapro.splice(0)
-    showData()
+    if(confirm(`Are You Sure Delete All...?`) == true){
+        localStorage.clear()
+        datapro.splice(0)
+        showData()
+    }
 }
 
 // ــــــــــــــــــــ
@@ -171,23 +168,19 @@ function updateData(i){
     getTotal();
     Count.style.display= "none";
     Category.value = datapro[i].Category;
-
     submite.innerHTML="UpDate"
     submite.style .background ="rgba(135, 111, 50, 0.812)"
-
     moodUpdate ="update";
     global = i;
-
     scroll({
         top:0 ,
         behavior:"smooth"
     })
-
 }
 
 // ــــــــــــــــــــ
 //ــSearch
-// (1)searchTitle
+// (1)
 let searchMood = "title";
 
 function getSearchMood(id)
@@ -201,8 +194,6 @@ function getSearchMood(id)
 
         searchMood = "category";
     }
-
-    
     search.placeholder = "Search By" + searchMood ;
     search.focus()
     // search.value =" "
@@ -211,7 +202,7 @@ function getSearchMood(id)
 }
 
 //----------
-//search
+// (2)
 
 function searchData (value)
 
@@ -240,9 +231,9 @@ function searchData (value)
                 `
             }
         
-     }else{
 
-// ــSearch by category:-
+     }else{
+        // Search by category
             if (datapro[i].Category.includes(value.toLowerCase())) 
             {
                 table +=`
@@ -264,6 +255,10 @@ function searchData (value)
     }
 
     }
-    document.querySelector ("tbody").innerHTML= table
+    document.querySelector ("#tbody").innerHTML= table
 
 }
+showData()
+
+
+
