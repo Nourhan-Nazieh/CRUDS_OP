@@ -107,14 +107,14 @@ body{
 }
 
 .price {
-    display: flex; /* اجعل العنصر الذي يحتوي على المدخلات يستخدم flex */
-    gap: 12px; /* المسافة بين العناصر */
+    display: flex; 
+    gap: 12px; 
     width: 90% !important;
 }
 
 .price input{
     display: flex;
-    flex: 1; /* تجعل كل حقل يأخذ نفس العرض */
+    flex: 1; 
     margin: 1px 0;
 
 }
@@ -183,11 +183,8 @@ button:hover{
 }
 
 @media(max-width:750px){
-
-    
-    
     .price {
-        gap: 2px; /* المسافة بين العناصر */
+        gap: 2px; 
         width: 100% !important;
         font-size: 13px;
     }
@@ -265,9 +262,6 @@ margin-bottom: 5px;
 table td{
 padding: 5px !important;
 }
-
-
-
 
 /* ــــــــــــــــــــــــــــــــــــــــــــــــــ */
 /* ـــــــــfotterــــــــ */

@@ -1,3 +1,4 @@
+
 let Title =document.querySelector ("#Title");
 let price =document.querySelector ("#price");
 let taxes =document.querySelector ("#taxes");
@@ -6,11 +7,15 @@ let discount =document.querySelector ("#discount");
 let total =document.querySelector ("#total");
 let Count =document.querySelector ("#Count");
 let Category =document.querySelector ("#Category");
-let submite =document.querySelector ("#submite");د
+let submite =document.querySelector ("#submite");
+
 let moodUpdate ="create";
 let global;
 
-
+// mood
+function moodDark(){
+}
+  
  // -----------------------CREAT---------------------
 //(01)ــget price-Total 
 function getTotal() {
@@ -27,6 +32,7 @@ function getTotal() {
 }
  // ـــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 //(02)ــCreat-Products:-
+
 let datapro;
 if(localStorage.product !=null){
 datapro = JSON.parse(localStorage.product )
@@ -37,7 +43,8 @@ datapro = JSON.parse(localStorage.product )
 }
 
 // ــــــــــــــــــــــــــــــــCReat:ــــــــــــــــــــــــــــ-
-submite.onclick = function(){
+
+submite.onclick = function(){     
     let newPro = {
         Title:Title.value .toLowerCase(),
         price:price.value,
@@ -55,6 +62,8 @@ submite.onclick = function(){
     ){
 
  if(moodUpdate === "create"){
+
+
     if(newPro.Count > 1 ){
         for(let i = 0; i < newPro.Count; i++ ){
             datapro.push(newPro)
@@ -62,6 +71,7 @@ submite.onclick = function(){
     }else{
         datapro.push(newPro)
     }
+
 }else{
     datapro[ global ] = newPro;
     moodUpdate ="create"
@@ -69,14 +79,15 @@ submite.onclick = function(){
     Count.style.display ="block"
     submite.style .background ="rgb(75, 23, 103)";
 }
+
     clearData()
     }
 
-   
  //ـSave-LocalStorage:- 
  localStorage.setItem( "product",   JSON.stringify(datapro) );
 
 showData()
+ 
 }
 
 // ـــــــــــــــــــــــــــــــــــــــــClear Dataــــــــــــــــــــــــــــــــــــــــ
@@ -92,9 +103,9 @@ function clearData(){
     Category.value = " " ;  
 }
 
-
-// ــــــــــــــــــــــــــــــــshowDataــــــــــــــــــــــ
+// ــــــــــــــــــــــshowDataــــــــــــــــــــــ
 //(1)ــRead data in Table:-
+
 function showData()
 {
  getTotal()
@@ -168,10 +179,13 @@ function updateData(i){
     getTotal();
     Count.style.display= "none";
     Category.value = datapro[i].Category;
+
     submite.innerHTML="UpDate"
     submite.style .background ="rgba(135, 111, 50, 0.812)"
+
     moodUpdate ="update";
     global = i;
+
     scroll({
         top:0 ,
         behavior:"smooth"
@@ -194,6 +208,8 @@ function getSearchMood(id)
 
         searchMood = "category";
     }
+
+    
     search.placeholder = "Search By" + searchMood ;
     search.focus()
     // search.value =" "
@@ -231,7 +247,6 @@ function searchData (value)
                 `
             }
         
-
      }else{
         // Search by category
             if (datapro[i].Category.includes(value.toLowerCase())) 
@@ -259,6 +274,5 @@ function searchData (value)
 
 }
 showData()
-
 
 
